@@ -1,0 +1,39 @@
+{
+  "name": "ticketing-system-for-a-public-transport-network-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SLIIT-Y3-S2/Ticketing-System-for-a-Public-Transport-Network-Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SLIIT-Y3-S2/Ticketing-System-for-a-Public-Transport-Network-Web/issues"
+  },
+  "homepage": "https://github.com/SLIIT-Y3-S2/Ticketing-System-for-a-Public-Transport-Network-Web#readme",
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.10",
+    "@mui/styled-engine-sc": "^5.10.6",
+    "axios": "^1.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0",
+    "process": "^0.11.10"
+  }
+}
