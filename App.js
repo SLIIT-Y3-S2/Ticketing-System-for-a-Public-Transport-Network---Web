@@ -1,13 +1,20 @@
-import React from 'react';
-export default class App extends React.Component{
-    constructor(props){
-        super(props);
-    }
-    render() {
-        return ( 
-            <div>
-                <h1>Hello. This is parcel react app</h1>
-            </div>
-        )
-    }
-}
+import React from "react";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BusView from "./src/Components/BusView";
+import Home from "./src/Components/Home";
+
+const App = () => {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/busview" element={<BusView />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+};
+
+export default App;
