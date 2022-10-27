@@ -4,6 +4,25 @@ import axios from "axios";
 import Form from "react-bootstrap/form";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import CampaignIcon from '@mui/icons-material/Campaign';
+
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'white',
+    border: '2px solid #0d316b',
+    boxShadow: 24,
+    p: 4,
+  };
+  
 
 const Payment = () => {
   const [validated, setvalidated] = useState(false);
@@ -12,6 +31,9 @@ const Payment = () => {
   const [expdate, setExpireDate] = useState("");
   const [cvc, setcvc] = useState("");
   const [amount, setAmount] = useState("");
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleSubmit = (event) => {
     const newPayment = {
@@ -107,14 +129,15 @@ const disablePastMonths = () => {
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridCvc">
-                        <Form.Label><b>CVC</b></Form.Label>
+                        <Form.Label><b>CVC</b>&nbsp;<InfoOutlinedIcon onClick={handleOpen} /></Form.Label>
                         <Form.Control 
                             type="password"
                             value={cvc}
                             pattern="[0-9]{3}"
                             onChange={(e) => setcvc(e.target.value)}
                             required
-                         />
+                        />
+                        
                     </Form.Group>
                 </Row>
 
@@ -137,6 +160,21 @@ const disablePastMonths = () => {
 
 
             </Form>
+
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description">
+                <Box sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{color:'#0d316b'}}>
+                        <b>Info</b> <CampaignIcon />
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{color:'#4287f5'}}>
+                        <b>Enter the last 3 digits of the number printed on the back of your credit/debit card.</b>
+                    </Typography>
+                </Box>
+            </Modal>
             </div>
 
         </div>
