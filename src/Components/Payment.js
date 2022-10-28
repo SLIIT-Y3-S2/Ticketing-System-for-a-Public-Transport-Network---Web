@@ -1,14 +1,12 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/form";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import CampaignIcon from '@mui/icons-material/Campaign';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 
 const style = {
@@ -31,9 +29,9 @@ const Payment = () => {
   const [expdate, setExpireDate] = useState("");
   const [cvc, setcvc] = useState("");
   const [amount, setAmount] = useState("");
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
 
   const handleSubmit = (event) => {
     const newPayment = {
@@ -129,7 +127,7 @@ const disablePastMonths = () => {
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridCvc">
-                        <Form.Label><b>CVC</b>&nbsp;<InfoOutlinedIcon onClick={handleOpen} /></Form.Label>
+                        <Form.Label><b>CVC</b>&nbsp;<InfoOutlinedIcon ref={target} onClick={() => setShow(!show)} /></Form.Label>
                         <Form.Control 
                             type="password"
                             value={cvc}
@@ -161,20 +159,14 @@ const disablePastMonths = () => {
 
             </Form>
 
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
-                <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{color:'#0d316b'}}>
-                        <b>Info</b> <CampaignIcon />
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }} style={{color:'#4287f5'}}>
-                        <b>Enter the last 3 digits of the number printed on the back of your credit/debit card.</b>
-                    </Typography>
-                </Box>
-            </Modal>
+            <Overlay target={target.current} show={show} placement="right">
+                {(props) => (
+                <Tooltip id="overlay-example" {...props}>
+                    The CVC is the  3 digit number on the back of your card.
+                </Tooltip>
+                )}
+            </Overlay>
+
             </div>
 
         </div>
