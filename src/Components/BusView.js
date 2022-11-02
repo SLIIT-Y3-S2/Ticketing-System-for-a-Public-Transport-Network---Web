@@ -70,7 +70,7 @@ const Bus = () => {
                   
                     <button
                       type="button"
-                      className="btn-edt"
+                      className="editButton"
                       onClick={() => {
                         setModalShow(true);
                         setBusDet(Bus);
@@ -83,7 +83,7 @@ const Bus = () => {
                     &nbsp;&nbsp;&nbsp;
                     <button
                       type="button"
-                      className="btn-del"
+                      className="deleteButton"
                       onClick={() => {
                         setModalDelete(true);
                         setBusDelete(Bus);
@@ -134,7 +134,7 @@ const Bus = () => {
                   
                     <button
                       type="button"
-                      className="btn-edt"
+                      className="editButton"
                       onClick={() => {
                         setModalShow(true);
                         setBusDet(Bus);
@@ -147,7 +147,7 @@ const Bus = () => {
                     &nbsp;&nbsp;&nbsp;
                     <button
                       type="button"
-                      className="btn-del"
+                      className="deleteButton"
                       onClick={() => {
                         setModalDelete(true);
                         setBusDelete(Bus);
@@ -196,7 +196,7 @@ const Bus = () => {
                   
                     <button
                       type="button"
-                      className="btn-edt"
+                      className="editButton"
                       onClick={() => {
                         setModalShow(true);
                         setBusDet(Bus);
@@ -209,7 +209,7 @@ const Bus = () => {
                     &nbsp;&nbsp;&nbsp;
                     <button
                       type="button"
-                      className="btn-del"
+                      className="deleteButton"
                       onClick={() => {
                         setModalDelete(true);
                         setBusDelete(Bus);

@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import Header from "./Layout/Header";
 
 const SheduleForm = ({ det }) => {
   const [validated, setvalidated] = useState(false);
@@ -95,152 +96,143 @@ const SheduleForm = ({ det }) => {
   const navigate = useNavigate();
   
   return (
-    
-    <div className={det==null ? "topic" : ""}>
-      <h2>{det != null ? ("Edit Bus Shedule") : ("Add Bus Shedule")}</h2>
-    <div className={det==null ? "formpageBody" : ""}>  
-    
-    <Form
-      noValidate
-      validated={validated}
-      onSubmit={handleSubmit}
-      // encType="multipart/form-data"
-    >
-        <Form.Group className="mb-4" controlId="formDate">
-        <Form.Label>Date</Form.Label>
-        <Form.Control
-          type="date"
-           min={disablePastDays()}
-          
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
-        <Form.Control.Feedback type="invalid">
-          Please insert Date
-        </Form.Control.Feedback>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formrouteNo">
-        <Form.Label>Route Number</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Route Number"
-          
-          pattern="[0-9]{3}"
-          value={routeno}
-          onChange={(e) => setRouteNo(e.target.value)}
-          required
-        />
-        <Form.Control.Feedback type="invalid">
-          Please insert Valid route Number. At most include 3 digits
-        </Form.Control.Feedback>
-      </Form.Group>
-
-       <Form.Group className="mb-3" controlId="formbusno">
-       {det == null ? (
-          <div>
-            <Form.Label>Bus No.</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Bus number"
-              value={busno}
-              onChange={(e) => setBusNo(e.target.value)}
-              require
-            />
-          </div>
-        ) : (
-          ""
-        )}
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formRoute">
-        <Form.Label>Route</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter Route"
-          value={route}
-          onChange={(e) => setRoute(e.target.value)}
-          required
-        />
-      </Form.Group>
-
-      
-
-      <Form.Group className="mb-3" controlId="formownername">
-        <Form.Label>Departure Time</Form.Label>
-        <Form.Control
-          type="time"
-          placeholder="Enter Departure Time"
-          value={dtime}
-          onChange={(e) => setDepTime(e.target.value)}
-          required
-        />
-        
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formownername">
-        <Form.Label>Expected Time of Arrival</Form.Label>
-        <Form.Control
-          type="time"
-          placeholder="Enter expexted arrival time"
-          value={arrtime}
-          onChange={(e) => setArrTime(e.target.value)}
-          required
-        />
-        
-      </Form.Group>
-
-      
-      <Form.Group className="mb-3" controlId="Formdrivername">
-        <Form.Label>Driver Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Driver Name"
-          value={drivername}
-          onChange={(e) => setDriverName(e.target.value)}
-          required
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="Forminspectorname">
-        <Form.Label>Inspector Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Inspector Name"
-          value={inspectorname}
-          onChange={(e) => setInspectorName(e.target.value)}
-          required
-        />
-      </Form.Group>
-
-      <Form.Group className="inputreg">
-                  <Form.Label>Bus Type</Form.Label>
-                  <Form.Select
-                    aria-label="Feedback Type"
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
-                  >
-                    <option selected disabled hidden>
-                      Bus Type
-                    </option>
-                    <option>Select Bus Type</option>
-                    <option>Normal</option>
-                    <option>Semi-luxury</option>
-                    <option>Luxury</option>
-                  </Form.Select>
-                </Form.Group>
-                <br/>
-
-
-      <button variant="primary" className='btn-edit' type="submit">
-        {det != null ? "Save Changes" : "Add"}
-      </button>
-      &nbsp;&nbsp;
-      <button varient="primary" className='btn-reset' type="reset" onClick={reset}>Reset</button>
-    </Form>
-    </div>
-   </div>
+    <>
+      <Header/>
+      <div className={det == null ? "topic1" : ""}>
+        <h2>{det != null ? "Edit Bus Shedule" : "Add Bus Shedule"}</h2>
+        <div className={det == null ? "formpageBody" : ""}>
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+            // encType="multipart/form-data"
+          >
+            <Form.Group className="mb-4" controlId="formDate">
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                type="date"
+                min={disablePastDays()}
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please insert Date
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formrouteNo">
+              <Form.Label>Route Number</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Route Number"
+                pattern="[0-9]{3}"
+                value={routeno}
+                onChange={(e) => setRouteNo(e.target.value)}
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please insert Valid route Number. At most include 3 digits
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formbusno">
+              {det == null ? (
+                <div>
+                  <Form.Label>Bus No.</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Bus number"
+                    value={busno}
+                    onChange={(e) => setBusNo(e.target.value)}
+                    require
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formRoute">
+              <Form.Label>Route</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Route"
+                value={route}
+                onChange={(e) => setRoute(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formownername">
+              <Form.Label>Departure Time</Form.Label>
+              <Form.Control
+                type="time"
+                placeholder="Enter Departure Time"
+                value={dtime}
+                onChange={(e) => setDepTime(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formownername">
+              <Form.Label>Expected Time of Arrival</Form.Label>
+              <Form.Control
+                type="time"
+                placeholder="Enter expexted arrival time"
+                value={arrtime}
+                onChange={(e) => setArrTime(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="Formdrivername">
+              <Form.Label>Driver Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Driver Name"
+                value={drivername}
+                onChange={(e) => setDriverName(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="Forminspectorname">
+              <Form.Label>Inspector Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Inspector Name"
+                value={inspectorname}
+                onChange={(e) => setInspectorName(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="inputreg">
+              <Form.Label>Bus Type</Form.Label>
+              <Form.Select
+                aria-label="Feedback Type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option selected disabled hidden>
+                  Bus Type
+                </option>
+                <option>Select Bus Type</option>
+                <option>Normal</option>
+                <option>Semi-luxury</option>
+                <option>Luxury</option>
+              </Form.Select>
+            </Form.Group>
+            <br />
+            <button variant="primary" className="editButton2" type="submit">
+              {det != null ? "Save Changes" : "Add"}
+            </button>
+            &nbsp;&nbsp;
+            <button
+              varient="primary"
+              className="resetButton"
+              type="reset"
+              onClick={reset}
+            >
+              Reset
+            </button>
+          </Form>
+        </div>
+      </div>
+    </>
   );
 };
 

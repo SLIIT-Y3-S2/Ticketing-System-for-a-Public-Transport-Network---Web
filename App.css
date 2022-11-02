@@ -1,7 +1,7 @@
 .pageBody {
-    margin-left: 250px;
+    margin-left: 3%;
     margin-top: 6%;
-    margin-right: 1%;
+    margin-right: 3%;
     padding: 20px;
     background-color: rgba(125, 125, 147, 0.082);
     border: 2px ;
@@ -10,7 +10,7 @@
   }
 
   .pageBodySheduleTopic {
-    margin-left: 25%;
+    margin-left: 5%;
     margin-right: 1%;
    margin-top: 4%;
   }
@@ -27,9 +27,9 @@
   }
 
   .pageBodyShedule1 {
-    margin-left: 25%;
+    margin-left:2%;
     margin-top: 4%;
-    margin-right: 1%;
+    margin-right: 2%;
     padding: 20px;
     background-color: rgba(125, 125, 147, 0.082);
     border: 2px ;
@@ -38,13 +38,20 @@
   }
   
   .topic{
-    margin-left: 30%;
+    margin-left: 5%;
     margin-top: 3%;
     margin-right: 1%;
     
   }
 
-  .btn-add{
+  .topic1{
+    margin-left: 25%;
+    margin-top: 3%;
+    margin-right: 1%;
+    
+  }
+
+  .addButton{
     margin-left: 75%;
     margin-right: 1%;
     background-color:#120a7b;
@@ -81,7 +88,7 @@
   }
 
   .card1 {
-    margin-left: 30%;
+    margin-left: 15%;
     margin-top: 6%;
     width:220px;
     height:200px;
@@ -91,7 +98,7 @@
   }
 
   .card2 {
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: -200px;
     width:220px;
     height:200px;
@@ -101,7 +108,7 @@
   }
 
   .card3 {
-    margin-left: 70%;
+    margin-left: 65%;
     margin-top: -200px;
     width:220px;
     height:200px;
@@ -133,7 +140,7 @@
     border-radius: 10px;
   }
 
-  .btn-del{
+  .deleteButton{
     background-color: rgb(10, 14, 70);
     color: white;
     border: 3px solid #174C4F;
@@ -143,7 +150,7 @@
     
   }
 
-  .btn-edt{
+  .editButton{
     background-color:#120a7b;
     border: 3px solid #174C4F;
     border-radius: 5px;
@@ -154,7 +161,7 @@
     
   }
 
-  .btn-view{
+  .viewButton{
     background-color:#120a7b;
     border: 3px solid #174C4F;
     border-radius: 5px;
@@ -165,12 +172,12 @@
     
   }
 
-  .btn-view1{
+  .viewButton1{
     padding: 90px 1px 50px 90px;
     
   }
 
-  .btn-edit{
+  .editButton2{
     background-color:#120a7b;
     border: 3px solid #174C4F;
     border-radius: 5px;
@@ -179,7 +186,7 @@
     width: 140px;
     padding: 6px;
   }
-  .btn-reset{
+  .resetButton{
     background-color:#6b62ea;
     border: 3px solid #174C4F;
     border-radius: 5px;
@@ -198,10 +205,10 @@
 
   
 .form{
-    margin-top: -550px;
-    margin-left: 800px;
+    margin-top: -560px;
+    margin-left: 500px;
     height: 550px;
-    width: 650px;
+    width: 550px;
     align-items: center;
 }
 
@@ -212,7 +219,7 @@
     margin-left: 120px;
 }
 
-.btn1{
+.darkButton{
     background-color:#0d316b;
     border-radius: 5px;
     color:white;
@@ -222,10 +229,10 @@
 }
 
 .pic{
-    margin-top: 80px;
+    margin-top: 60px;
     margin-left: 100px;
     height: 550px;
-    width: 600px;
+    width:400px;
     /* border: 2px solid grey; */
     align-items: center;
     background-image: url("https://www.myclassboard.com/wp-content/uploads/2021/03/transport-management.png");

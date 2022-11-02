@@ -110,7 +110,7 @@ const Home = () => {
           <br />
           <center>
             <Link to="/register">
-              <button className="btn1">REGISTER</button>
+              <button className="darkButton">REGISTER</button>
             </Link>
           </center>
         </div>
@@ -146,7 +146,7 @@ const Home = () => {
           <br />
           <center>
             <Link to="/payment">
-              <button className="btn-login">RECHARGE</button>
+              <button className="loginButton">RECHARGE</button>
             </Link>
           </center>
         </div>
@@ -205,7 +205,7 @@ const Home = () => {
           <br />
           <center>
             <Link to="/login">
-              <button className="btn1">MANAGER LOGIN</button>
+              <button className="darkButton">MANAGER LOGIN</button>
             </Link>
           </center>
         </div>
