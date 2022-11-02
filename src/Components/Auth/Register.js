@@ -208,7 +208,7 @@ export default function SignUp() {
       </ThemeProvider>
       <Snackbar
         open={openSuccess}
-        autoHideDuration={3000}
+        autoHideDuration={2000}
         onClose={handleCloseSuccess}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >

@@ -21,7 +21,10 @@ const Header = () => {
   const styles = useStyles();
   return (
     <div className={styles.AppBar}>
-      <AppBar position="sticky">
+      <AppBar
+        position="sticky"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      >
         <div
           style={{
             display: "flex",

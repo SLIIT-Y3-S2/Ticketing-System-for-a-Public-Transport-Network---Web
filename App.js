@@ -8,7 +8,8 @@ import Home from "./src/Components/Home";
 import UserContext from "./src/Components/Context/UserContext";
 import Register from "./src/Components/Auth/Register";
 import Login from "./src/Components/Auth/Login";
-import Header from "./src/Components/Layout/Header";
+import PassengerDashboard from "./src/Components/PassengerDashboard";
+import ManagerDashbord from "./src/Components/ManagerDashbord";
 
 
 const App = () => {
@@ -44,13 +45,16 @@ const App = () => {
     <div>
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-          <Header/>
+          {/* <Header/> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/busview" element={<BusView />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/login" element={<Login />} />
+            <Route path="/passenger" element={<PassengerDashboard user={userData} />} />
+            <Route path="/manager" element={<ManagerDashbord user={userData}/>}/>
+            <Route path="/busview" element={<BusView />} />
           </Routes>
         </UserContext.Provider>
       </BrowserRouter>

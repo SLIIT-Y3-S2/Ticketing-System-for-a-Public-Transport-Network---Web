@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
+import Header from './Layout/Header';
 
 
 const Home = () => {
   return (
     <div>
+      <Header/>
       <div style={{backgroundColor:'white', height:'300px', width:'auto'}}>
         <br />
         <div style={{backgroundImage:`url("https://img.freepik.com/premium-vector/internet-service-book-buy-bus-ticket-travel-tourism-concept-tourist-planning-trip-online-passengers-buying-tickets-bus-mobile-app-vector-design_458444-1502.jpg?w=2000")`,backgroundSize:'cover', height:'250px', width:'400px',marginLeft:'auto', marginRight:'auto'}}>
