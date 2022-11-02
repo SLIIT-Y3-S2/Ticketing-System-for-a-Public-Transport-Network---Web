@@ -51,7 +51,6 @@ const App = () => {
             <Route path="/busview" element={<BusView />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login/>}/>
-            <Route path="/busview" element={<BusView />} />
           </Routes>
         </UserContext.Provider>
       </BrowserRouter>
