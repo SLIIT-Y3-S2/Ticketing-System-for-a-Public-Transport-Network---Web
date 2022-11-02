@@ -197,3 +197,47 @@
   }
 
   
+.form{
+    margin-top: -550px;
+    margin-left: 800px;
+    height: 550px;
+    width: 650px;
+    align-items: center;
+}
+
+.form-in{
+    width: 500px;
+    align-items: center;
+    display: flex;
+    margin-left: 120px;
+}
+
+.btn1{
+    background-color:#0d316b;
+    border-radius: 5px;
+    color:white;
+    height: 40px;
+    width: 170px;
+    font-weight: bold;
+}
+
+.pic{
+    margin-top: 80px;
+    margin-left: 100px;
+    height: 550px;
+    width: 600px;
+    /* border: 2px solid grey; */
+    align-items: center;
+    background-image: url("https://www.myclassboard.com/wp-content/uploads/2021/03/transport-management.png");
+    background-size: cover;
+}
+
+.btn-login{
+    background-color:white;
+    border-radius: 5px;
+    color:black;
+    height: 30px;
+    width: 170px;
+    font-weight: bold;
+    border: 2px solid white;
+}

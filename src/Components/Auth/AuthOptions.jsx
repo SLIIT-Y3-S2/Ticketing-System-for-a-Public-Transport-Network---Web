@@ -29,6 +29,7 @@ function AuthOptions() {
       user: undefined,
     });
     localStorage.setItem("auth-token", "");
+    navigate("/");
   };
   return (
     <nav className="auth-options">
