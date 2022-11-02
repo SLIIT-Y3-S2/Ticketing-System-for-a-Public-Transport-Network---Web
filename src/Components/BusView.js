@@ -1,83 +1,244 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import React from "react";
+//import SideNavBar from "./SupSideNavBar";
+import Table from "react-bootstrap/Table";
 import { useState, useEffect } from "react";
-import axios from 'axios';
+import ModleBus from "./ModleBus";
+import ModleDelete from "./BusModleDelete";
+import { Grid } from "@mui/material";
+//import { FaUserPlus } from "react-icons/fa";
+import axios from "axios";
 
-const BusView = () => {
-  const [buses, setBus] = useState([]);
+const Bus = () => {
+  const [Buses, setBus] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [modaldelete, setModalDelete] = useState(false);
+  const [BusDet, setBusDet] = useState("");
+  const [Busdelete, setBusDelete] = useState("");
 
-    useEffect(() => {
-        const getBuses = () => {
-          axios
-            .get("http://localhost:5000/bus")
-            .then((res) => {
-              setBus(res.data);
-              console.log(res.data);
-            })
-            .catch((err) => {
-              alert(err.msg);
-            });
-        };
-        getBuses();
-      }, []);
+  useEffect(() => {
+    const getBuses = () => {
+      axios
+        .get("http://localhost:5000/bus")
+        .then((res) => {
+          setBus(res.data);
+          console.log(res.data);
+        })
+        .catch((err) => {
+          alert(err.msg);
+        });
+    };
+    getBuses();
+  }, []);
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
-
-
-
+ 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Bus No</StyledTableCell>
-            <StyledTableCell align="right">Route</StyledTableCell>
-            <StyledTableCell align="right">Route No</StyledTableCell>
-            <StyledTableCell align="right">Owner Name</StyledTableCell>
-            <StyledTableCell align="right">Driver Name</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {buses.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.busNo}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.route}</StyledTableCell>
-              <StyledTableCell align="right">{row.routeNo}</StyledTableCell>
-              <StyledTableCell align="right">{row.ownerName}</StyledTableCell>
-              <StyledTableCell align="right">{row.driverName}</StyledTableCell>
-            </StyledTableRow>
+    <>
+      {/* <SideNavBar /> */}
+      <div className="pageBody">
+       
+        <br />
+        <br />
+        <h3>Normal Buses</h3>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Bus No</th>
+              <th>Route</th>
+              <th>Route No</th>
+              <th>Owner Name</th>
+              <th>Driver Name</th>
+              <th>Action</th>
+              
+            </tr>
+          </thead>
+          {Buses
+          .filter(
+            (busType) =>
+            busType.busType === "Normal" 
+          ).map((Bus) => (
+            <tbody key={Bus._id}>
+              <tr>
+                <td>{Bus.busNo}</td>
+                <td>{Bus.route}</td>
+                <td>{Bus.routeNo}</td>
+                <td>{Bus.ownerName}</td>
+                <td>{Bus.driverName}</td>
+                
+                <td>
+                  <div style={{display:"flex", justifyContent:"center"}}>
+                  
+                    <button
+                      type="button"
+                      className="editButton"
+                      onClick={() => {
+                        setModalShow(true);
+                        setBusDet(Bus);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      title="Edit Bus"
+                    >
+                      EDIT
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button
+                      type="button"
+                      className="deleteButton"
+                      onClick={() => {
+                        setModalDelete(true);
+                        setBusDelete(Bus);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      title="Delete Bus"
+                    >
+                      DELETE
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
           ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        </Table>
+        <br />
+        <br />
+        <h3>Semi-luxury Buses</h3>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Bus No</th>
+              <th>Route</th>
+              <th>Route No</th>
+              <th>Owner Name</th>
+              <th>Driver Name</th>
+              <th>Action</th>
+              
+            </tr>
+          </thead>
+          {Buses
+          .filter(
+            (busType) =>
+            busType.busType === "Semi-luxury"
+            
+          ).map((Bus) => (
+            <tbody key={Bus._id}>
+              <tr>
+                <td>{Bus.busNo}</td>
+                <td>{Bus.route}</td>
+                <td>{Bus.routeNo}</td>
+                <td>{Bus.ownerName}</td>
+                <td>{Bus.driverName}</td>
+                
+                <td>
+                <div style={{display:"flex", justifyContent:"center"}}>
+                  
+                  
+                    <button
+                      type="button"
+                      className="editButton"
+                      onClick={() => {
+                        setModalShow(true);
+                        setBusDet(Bus);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      title="Edit Bus"
+                    >
+                      EDIT
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button
+                      type="button"
+                      className="deleteButton"
+                      onClick={() => {
+                        setModalDelete(true);
+                        setBusDelete(Bus);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      title="Delete Bus"
+                    >
+                      DELETE
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </Table>
+        <br />
+        <br />
+        <h3>Luxury Buses</h3>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Bus No</th>
+              <th>Route</th>
+              <th>Route No</th>
+              <th>Owner Name</th>
+              <th>Driver Name</th>
+              <th>Action</th>
+              
+            </tr>
+          </thead>
+          {Buses
+          .filter(
+            (busType) =>
+            busType.busType === "Luxury" 
+          ).map((Bus) => (
+            <tbody key={Bus._id}>
+              <tr>
+                <td>{Bus.busNo}</td>
+                <td>{Bus.route}</td>
+                <td>{Bus.routeNo}</td>
+                <td>{Bus.ownerName}</td>
+                <td>{Bus.driverName}</td>
+                
+                <td>
+                <div style={{display:"flex", justifyContent:"center"}}>
+                  
+                    <button
+                      type="button"
+                      className="editButton"
+                      onClick={() => {
+                        setModalShow(true);
+                        setBusDet(Bus);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      title="Edit Bus"
+                    >
+                      EDIT
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button
+                      type="button"
+                      className="deleteButton"
+                      onClick={() => {
+                        setModalDelete(true);
+                        setBusDelete(Bus);
+                      }}
+                      style={{ cursor: "pointer" }}
+                      title="Delete Bus"
+                    >
+                      DELETE
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </Table>
+        <ModleBus show={showModal} onHide={() => setShowModal(false)} />
+        <ModleBus
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          BusDet={BusDet}
+        />
+        <ModleDelete
+          show={modaldelete}
+          onHide={() => setModalDelete(false)}
+          Busdelete={Busdelete}
+        />
+      </div>
+    </>
   );
-}
+};
 
-export default BusView;
+export default Bus;

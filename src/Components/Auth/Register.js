@@ -137,8 +137,8 @@ export default function SignUp() {
                     label="Gender"
                     select
                   >
-                    <MenuItem value="male">Male</MenuItem>
-                    <MenuItem value="female">Female</MenuItem>
+                    <MenuItem value="Male">Male</MenuItem>
+                    <MenuItem value="Female">Female</MenuItem>
                   </TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -208,7 +208,7 @@ export default function SignUp() {
       </ThemeProvider>
       <Snackbar
         open={openSuccess}
-        autoHideDuration={3000}
+        autoHideDuration={2000}
         onClose={handleCloseSuccess}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >

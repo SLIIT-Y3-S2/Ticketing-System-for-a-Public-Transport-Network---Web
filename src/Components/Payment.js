@@ -144,7 +144,7 @@ const disablePastMonths = () => {
                 <br />
 
                 <center>
-                    <button className='btn1' type='submit'>PAY</button>
+                    <button className='darkButton' type='submit'>PAY</button>
                 </center>
 
 
