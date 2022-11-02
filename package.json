@@ -32,10 +32,11 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.2.0",
     "react-router-dom": "^6.4.2",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
-    "buffer":"^6.0.3",
+    "buffer": "^6.0.3",
     "parcel": "^2.7.0",
     "process": "^0.11.10"
   }
