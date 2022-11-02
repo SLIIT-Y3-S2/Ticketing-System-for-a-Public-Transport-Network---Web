@@ -68,7 +68,6 @@ const disablePastMonths = () => {
 
   return (
     <div>
-        <hr style={{marginTop:'60px'}} />
         <div className="pic"></div>
         <div className='form'>
             <center>
