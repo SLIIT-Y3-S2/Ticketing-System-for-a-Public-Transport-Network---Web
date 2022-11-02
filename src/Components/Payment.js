@@ -7,19 +7,7 @@ import Row from 'react-bootstrap/Row';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'white',
-    border: '2px solid #0d316b',
-    boxShadow: 24,
-    p: 4,
-  };
+import { useNavigate } from 'react-router-dom';
   
 
 const Payment = () => {
@@ -32,8 +20,11 @@ const Payment = () => {
   const [show, setShow] = useState(false);
   const target = useRef(null);
 
+  const navigate = useNavigate();
+
 
   const handleSubmit = (event) => {
+    console.log("submitted");
     const newPayment = {
       holderName: hname,
       cardNo: cno,
@@ -51,20 +42,21 @@ const Payment = () => {
       
         axios
           .post("http://localhost:5000/payment", newPayment)
-          .then(() => alert("Successfully Added"))
-          .catch((err) => alert("Error"));
-      
+          .then(() => alert("Successfully Added"), navigate('/payment'))
+          .catch(() => alert("Error"));
+
+          event.preventDefault();
     }
     setvalidated(true);
   };
 
-const Resetform = () => {
-    setHolderName(null);
-    setCardNo(null);
-    setExpireDate(null);
-    setcvc(null);
-    setAmount(null);
-};
+// const Resetform = () => {
+//     setHolderName(null);
+//     setCardNo(null);
+//     setExpireDate(null);
+//     setcvc(null);
+//     setAmount(null);
+// };
 
 const disablePastMonths = () => {
     const today = new Date();
