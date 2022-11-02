@@ -17,7 +17,7 @@ const ModleDelete = (props) => {
         </Modal.Title>
       </Modal.Header>
       <ModalBody>
-          <BusDeleteForm bus={props.busdelete} />
+          <BusDeleteForm bus={props.Busdelete} />
         
         
       </ModalBody>

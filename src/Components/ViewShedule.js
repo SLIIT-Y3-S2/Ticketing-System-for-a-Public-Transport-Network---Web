@@ -10,9 +10,9 @@ const current = new Date();
 const ViewShedule = () => {
   return (
     <div className='topic'>
-      <h2>View Shedules</h2>
       
       <Link to="/sheduleform"><button variant="primary" className='btn-add' type="submit">ADD SHEDULE</button></Link>
+      <h2>View Shedules</h2>
     <div  className="cardpageBody">
       
       <CardGroup className="cardBody">

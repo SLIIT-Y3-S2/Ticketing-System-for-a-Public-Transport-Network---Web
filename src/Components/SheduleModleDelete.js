@@ -1,6 +1,6 @@
 import Modal from "react-bootstrap/Modal";
 import { ModalBody } from "react-bootstrap";
-import BusDeleteForm from "./BusDeleteForm";
+import SheduleDeleteForm from "./SheduleDeleteForm";
 
 const ModleDelete = (props) => {
   return (
@@ -17,7 +17,7 @@ const ModleDelete = (props) => {
         </Modal.Title>
       </Modal.Header>
       <ModalBody>
-          <BusDeleteForm bus={props.busdelete} />
+          <SheduleDeleteForm bus={props.Sheduledelete} />
         
         
       </ModalBody>

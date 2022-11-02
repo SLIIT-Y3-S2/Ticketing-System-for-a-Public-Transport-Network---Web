@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 const SheduleForm = ({ det }) => {
   const [validated, setvalidated] = useState(false);
@@ -31,11 +32,6 @@ const SheduleForm = ({ det }) => {
     };
     
 
-   
-    
-    
-    
-    
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -47,9 +43,8 @@ const SheduleForm = ({ det }) => {
           axios
             .post("http://localhost:5000/shedule/", newShedule)
             .then(
-            // console.log(data),
-            () => swal("Successfull!", "Shedule Added Successfully!", "success",{timer: 3000})
-            // ()=> <Alert severity="success">This is a success alert — check it out!</Alert>
+              //() => swal("Success!", "Shedule Submitted Successfully!", "success"),
+              navigate("/viewshedule")
             )
             .catch((err) => alert(err));
 
@@ -97,9 +92,12 @@ const SheduleForm = ({ det }) => {
     return yyyy + "-" + mm + "-" + dd;
   };
 
+  const navigate = useNavigate();
+  
   return (
     
-    
+    <div className={det==null ? "topic" : ""}>
+      <h2>{det != null ? ("Edit Bus Shedule") : ("Add Bus Shedule")}</h2>
     <div className={det==null ? "formpageBody" : ""}>  
     
     <Form
@@ -242,7 +240,7 @@ const SheduleForm = ({ det }) => {
       <button varient="primary" className='btn-reset' type="reset" onClick={reset}>Reset</button>
     </Form>
     </div>
-   
+   </div>
   );
 };
 
