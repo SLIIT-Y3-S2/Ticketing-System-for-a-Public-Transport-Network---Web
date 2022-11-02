@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Payment from "./src/Components/Payment";
 import axios from "axios";
 import BusView from "./src/Components/BusView";
 import Home from "./src/Components/Home";
@@ -46,9 +47,10 @@ const App = () => {
           <Header/>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/busview" element={<BusView />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login/>}/>
-            <Route path="/busview" element={<BusView />} />
           </Routes>
         </UserContext.Provider>
       </BrowserRouter>
