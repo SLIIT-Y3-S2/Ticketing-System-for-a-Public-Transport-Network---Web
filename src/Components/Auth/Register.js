@@ -137,8 +137,8 @@ export default function SignUp() {
                     label="Gender"
                     select
                   >
-                    <MenuItem value="male">Male</MenuItem>
-                    <MenuItem value="female">Female</MenuItem>
+                    <MenuItem value="Male">Male</MenuItem>
+                    <MenuItem value="Female">Female</MenuItem>
                   </TextField>
                 </Grid>
                 <Grid item xs={12} sm={6}>

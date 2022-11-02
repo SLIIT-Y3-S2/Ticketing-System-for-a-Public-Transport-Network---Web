@@ -185,16 +185,12 @@ export default function Login() {
                       id="password"
                       autoComplete="current-password"
                     />
-                    <FormControlLabel
-                      control={<Checkbox value="remember" color="primary" />}
-                      label="Remember me"
-                    />
                     <Button
                       type="submit"
                       fullWidth
                       variant="contained"
                       sx={{ mt: 3, mb: 2 }}
-                      style={{ backgroundColor: "#4287f5" }}
+                      style={{ backgroundColor: "#4287f5", lineHeight:"30px", marginTop:"5px" }}
                     >
                       Sign In
                     </Button>

@@ -34,7 +34,7 @@ const SheduleDeleteForm = ({bus}) => {
           </Form.Label>
           
         </Form.Group>
-        <button variant="danger" className="btn-del" type="submit">
+        <button variant="danger" className="deleteButton" type="submit">
           Delete
         </button>
       </Form>

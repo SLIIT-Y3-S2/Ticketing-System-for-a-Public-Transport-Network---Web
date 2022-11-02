@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Header from "./Layout/Header";
 
 
 
@@ -74,149 +75,151 @@ const BusForm = ({ det }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={det == null ? "topic" : ""}>
-      <h2>{det != null ? "Edit a Bus " : "Add a Bus "}</h2>
-      <div className={det == null ? "formpageBody" : ""}>
-        <Form
-          noValidate
-          validated={validated}
-          onSubmit={handleSubmit}
-          // encType="multipart/form-data"
-        >
-          <Form.Group className="mb-3" controlId="formbusno">
-            {det == null ? (
-              <div>
-                <Form.Label>Bus No.</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Bus number"
-                  value={busno}
-                  onChange={(e) => setBusNo(e.target.value)}
-                  require
-                />
-              </div>
-            ) : (
-              ""
-            )}
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formRoute">
-            <Form.Label>Route</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Route"
-              value={route}
-              onChange={(e) => setRoute(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formrouteNo">
-            <Form.Label>Route Number</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Route Number"
-              pattern="[0-9]{3}"
-              value={routeno}
-              onChange={(e) => setRouteNo(e.target.value)}
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please insert Valid route Number. At most include 3 digits
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formownername">
-            <Form.Label>Owner Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Owner Name"
-              value={ownername}
-              onChange={(e) => setOwnerName(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="Formdrivername">
-            <Form.Label>Driver Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Driver Name"
-              value={drivername}
-              onChange={(e) => setDriverName(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="inputreg">
-            <Form.Label>Bus Type</Form.Label>
-            <Form.Select
-              aria-label="Feedback Type"
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-            >
-              <option selected disabled hidden>
-                Bus Type
-              </option>
-              <option>Select Bus Type</option>
-              <option>Normal</option>
-              <option>Semi-luxury</option>
-              <option>Luxury</option>
-            </Form.Select>
-          </Form.Group>
-          <br />
-          <Form.Group className="mb-3" controlId="formPassword">
-            {det == null ? (
-              <div>
-                <Form.Label>Create New Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Create Password"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-                <Form.Text className="text-muted">
-                  Must contain at least one number and one symbol and one
-                  uppercase and lowercase letter, and at least 8 or more
-                  characters
-                </Form.Text>
-              </div>
-            ) : (
-              ""
-            )}
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formrePassword">
-            {det == null ? (
-              <div>
-                <Form.Label>Re Enter New Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Re Enter Password"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
-              </div>
-            ) : (
-              ""
-            )}
-          </Form.Group>
-          <br />
-          <button variant="primary" className="btn-edit" type="submit">
-            {det != null ? "Save Changes" : "Add"}
-          </button>
-          &nbsp;&nbsp;
-          <button
-            varient="primary"
-            className="btn-reset"
-            type="reset"
-            onClick={reset}
+    <>
+      <Header/>
+      <div className={det == null ? "topic1" : ""}>
+        <h2>{det != null ? "Edit a Bus " : "Add a Bus "}</h2>
+        <div className={det == null ? "formpageBody" : ""}>
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+            // encType="multipart/form-data"
           >
-            Reset
-          </button>
-        </Form>
-      
+            <Form.Group className="mb-3" controlId="formbusno">
+              {det == null ? (
+                <div>
+                  <Form.Label>Bus No.</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter Bus number"
+                    value={busno}
+                    onChange={(e) => setBusNo(e.target.value)}
+                    require
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formRoute">
+              <Form.Label>Route</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Route"
+                value={route}
+                onChange={(e) => setRoute(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formrouteNo">
+              <Form.Label>Route Number</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Route Number"
+                pattern="[0-9]{3}"
+                value={routeno}
+                onChange={(e) => setRouteNo(e.target.value)}
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please insert Valid route Number. At most include 3 digits
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formownername">
+              <Form.Label>Owner Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Owner Name"
+                value={ownername}
+                onChange={(e) => setOwnerName(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="Formdrivername">
+              <Form.Label>Driver Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Driver Name"
+                value={drivername}
+                onChange={(e) => setDriverName(e.target.value)}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="inputreg">
+              <Form.Label>Bus Type</Form.Label>
+              <Form.Select
+                aria-label="Feedback Type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option selected disabled hidden>
+                  Bus Type
+                </option>
+                <option>Select Bus Type</option>
+                <option>Normal</option>
+                <option>Semi-luxury</option>
+                <option>Luxury</option>
+              </Form.Select>
+            </Form.Group>
+            <br />
+            <Form.Group className="mb-3" controlId="formPassword">
+              {det == null ? (
+                <div>
+                  <Form.Label>Create New Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Create Password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  <Form.Text className="text-muted">
+                    Must contain at least one number and one symbol and one
+                    uppercase and lowercase letter, and at least 8 or more
+                    characters
+                  </Form.Text>
+                </div>
+              ) : (
+                ""
+              )}
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formrePassword">
+              {det == null ? (
+                <div>
+                  <Form.Label>Re Enter New Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Re Enter Password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              ) : (
+                ""
+              )}
+            </Form.Group>
+            <br />
+            <button variant="primary" className="editButton2" type="submit">
+              {det != null ? "Save Changes" : "Add"}
+            </button>
+            &nbsp;&nbsp;
+            <button
+              varient="primary"
+              className="resetButton"
+              type="reset"
+              onClick={reset}
+            >
+              Reset
+            </button>
+          </Form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

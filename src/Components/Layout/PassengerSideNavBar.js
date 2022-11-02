@@ -15,6 +15,7 @@ import AuthOptions from "../Auth/AuthOptions";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import PassengerProfile from "../PassengerProfile";
+import Payment from "../Payment";
 
 const drawerWidth = 240;
 
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PassengerSideNavBar = ({user}) => {
   const styles = useStyles();
-  const [page, setPage] = React.useState(2);
+  const [page, setPage] = React.useState(1);
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -49,7 +50,7 @@ const PassengerSideNavBar = ({user}) => {
               padding: "10px 15px 10px 15px",
             }}
           >
-            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <Link style={{ textDecoration: "none", color: "black" }}>
               <h1 style={{ letterSpacing: "0.1em" }}>Easy Going</h1>
             </Link>
             <AuthOptions />
@@ -72,13 +73,26 @@ const PassengerSideNavBar = ({user}) => {
           <Toolbar />
           <Box sx={{ overflow: "auto", paddingTop: "10px" }}>
             <List>
-              {["Home", "My Account", "Recharge Account"].map((text, index) => (
+              <ListItem>
+                <ListItemText
+                  style={{
+                    padding: "10px 0px 10px 0px",
+                    border: "2px solid",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    textAlign: "center",
+                  }}
+                  primary={user.user.type}
+                 
+                />
+              </ListItem>
+              {["My Account", "Recharge Account"].map((text, index) => (
                 <ListItem key={text} disablePadding>
                   <ListItemButton>
                     <ListItemText
                       primary={text}
                       style={{
-                        padding: "5px 0px 10px 0px",
+                        padding: "5px 0px 10px 10px",
                         borderBottom: "1px solid",
                         fontWeight: "bold",
                       }}
@@ -93,13 +107,7 @@ const PassengerSideNavBar = ({user}) => {
       </div>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        {page === 1 ? (
-          <h1>Home</h1>
-        ) : page === 2 ? (
-          <PassengerProfile user={user} />
-        ) : (
-          <h1>Recharge</h1>
-        )}
+        {page === 1 ? <PassengerProfile user={user} /> : <Payment />}
       </Box>
     </Box>
   );

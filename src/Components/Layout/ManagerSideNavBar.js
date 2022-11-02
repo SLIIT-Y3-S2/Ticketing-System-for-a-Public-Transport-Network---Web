@@ -15,6 +15,9 @@ import AuthOptions from "../Auth/AuthOptions";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import PassengerProfile from "../PassengerProfile";
+import SheduleDashboard from "../SheduleDashboard";
+import ViewShedule from "../ViewShedule";
+import BusView from "../BusView";
 
 const drawerWidth = 240;
 
@@ -33,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ManagerSideNavBar = ({ user }) => {
   const styles = useStyles();
-  const [page, setPage] = React.useState(2);
+  const [page, setPage] = React.useState(1);
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -49,7 +52,7 @@ const ManagerSideNavBar = ({ user }) => {
               padding: "10px 15px 10px 15px",
             }}
           >
-            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <Link style={{ textDecoration: "none", color: "black" }}>
               <h1 style={{ letterSpacing: "0.1em" }}>Easy Going</h1>
             </Link>
             <AuthOptions />
@@ -72,13 +75,30 @@ const ManagerSideNavBar = ({ user }) => {
           <Toolbar />
           <Box sx={{ overflow: "auto", paddingTop: "10px" }}>
             <List>
-              {["Home", "Dashboard", "View Shedules", "View Buses", "View Inspectors"].map((text, index) => (
+              <ListItem>
+                <ListItemText
+                  style={{
+                    padding: "10px 0px 10px 0px",
+                    border: "2px solid",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    textAlign: "center",
+                  }}
+                  primary={user.user.type}
+                />
+              </ListItem>
+              {[
+                "Dashboard",
+                "View Shedules",
+                "View Buses",
+                "View Inspectors",
+              ].map((text, index) => (
                 <ListItem key={text} disablePadding>
                   <ListItemButton>
                     <ListItemText
                       primary={text}
                       style={{
-                        padding: "5px 0px 10px 0px",
+                        padding: "5px 0px 10px 10px",
                         borderBottom: "1px solid",
                         fontWeight: "bold",
                       }}
@@ -94,11 +114,13 @@ const ManagerSideNavBar = ({ user }) => {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         {page === 1 ? (
-          <h1>Home</h1>
+          <SheduleDashboard />
         ) : page === 2 ? (
-          <PassengerProfile user={user} />
+          <ViewShedule />
+        ) : page === 3 ? (
+          <BusView />
         ) : (
-          <h1>Recharge</h1>
+          <h1>View Inspectors</h1>
         )}
       </Box>
     </Box>
