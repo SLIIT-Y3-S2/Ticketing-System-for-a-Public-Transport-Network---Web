@@ -76,7 +76,7 @@ const BusForm = ({ det }) => {
 
   return (
     <>
-      <Header/>
+      <div> {det == null ? (<Header />) : ("")}
       <div className={det == null ? "topic1" : ""}>
         <h2>{det != null ? "Edit a Bus " : "Add a Bus "}</h2>
         <div className={det == null ? "formpageBody" : ""}>
@@ -218,6 +218,7 @@ const BusForm = ({ det }) => {
             </button>
           </Form>
         </div>
+      </div>
       </div>
     </>
   );

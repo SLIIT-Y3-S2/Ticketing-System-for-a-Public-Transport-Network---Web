@@ -97,7 +97,7 @@ const SheduleForm = ({ det }) => {
   
   return (
     <>
-      <Header/>
+      <div> {det == null ? (<Header />) : ("")}
       <div className={det == null ? "topic1" : ""}>
         <h2>{det != null ? "Edit Bus Shedule" : "Add Bus Shedule"}</h2>
         <div className={det == null ? "formpageBody" : ""}>
@@ -231,6 +231,7 @@ const SheduleForm = ({ det }) => {
             </button>
           </Form>
         </div>
+      </div>
       </div>
     </>
   );
