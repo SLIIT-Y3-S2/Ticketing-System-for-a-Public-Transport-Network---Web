@@ -30,7 +30,7 @@ const InspectorView = () => {
   return (
     <>
       {/* <SideNavBar /> */}
-      
+     
       <div className="pageBody">
       <Link to="/Inspectorform">
         <button variant="primary" className="addButton" type="submit">

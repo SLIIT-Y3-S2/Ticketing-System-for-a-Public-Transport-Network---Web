@@ -36,7 +36,7 @@ const InspectorForm = ({ det }) => {
             .post("http://localhost:5000/inspector/", newInspector)
             .then(
               //() => swal("Success!", "Shedule Submitted Successfully!", "success"),
-              navigate("/inspectorview")
+              navigate("/manager")
             )
             .catch((err) => alert(err));
 
@@ -130,7 +130,7 @@ const InspectorForm = ({ det }) => {
               </Form.Select>
             </Form.Group>  
         
-
+<br/>
             <Form.Group className="mb-3" controlId="formMobile">
         <Form.Label>Moblie Number</Form.Label>
         <Form.Control
