@@ -41,7 +41,7 @@ const BusForm = ({ det }) => {
         .post("http://localhost:5000/bus/", newBus)
         .then(
           
-          navigate("/busview")
+          navigate("/manager")
         )
         .catch((err) => alert(err));
     } else {

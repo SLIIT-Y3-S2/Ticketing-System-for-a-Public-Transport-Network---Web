@@ -45,7 +45,7 @@ const SheduleForm = ({ det }) => {
             .post("http://localhost:5000/shedule/", newShedule)
             .then(
               //() => swal("Success!", "Shedule Submitted Successfully!", "success"),
-              navigate("/viewshedule")
+              navigate("/manager")
             )
             .catch((err) => alert(err));
 
