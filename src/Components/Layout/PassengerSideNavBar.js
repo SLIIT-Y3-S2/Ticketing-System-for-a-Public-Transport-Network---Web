@@ -35,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
 const PassengerSideNavBar = ({user}) => {
   const styles = useStyles();
   const [page, setPage] = React.useState(1);
+
+  const handleRecharge = () => {
+    setPage(2);
+  }
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -107,7 +111,7 @@ const PassengerSideNavBar = ({user}) => {
       </div>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        {page === 1 ? <PassengerProfile user={user} /> : <Payment />}
+        {page === 1 ? <PassengerProfile user={user} recharge={handleRecharge} /> : <Payment />}
       </Box>
     </Box>
   );
