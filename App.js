@@ -17,6 +17,8 @@ import Register from "./src/Components/Auth/Register";
 import Login from "./src/Components/Auth/Login";
 import PassengerDashboard from "./src/Components/PassengerDashboard";
 import ManagerDashbord from "./src/Components/ManagerDashbord";
+import InspectorView from "./src/Components/InspectorView";
+import InspectorForm from "./src/Components/InspectorForm";
 
 const App = () => {
   const [userData, setUserData] = useState({
@@ -72,6 +74,8 @@ const App = () => {
             <Route path="/normalshedule" element={<NormalBusShedule />} />
             <Route path="/semishedule" element={<SemiBusShedule />} />
             <Route path="/sheduledashboard" element={<SheduleDashboard />} />
+            <Route path="/inspectorview" element={<InspectorView />} />
+            <Route path="/inspectorform" element={<InspectorForm />} />
           </Routes>
         </UserContext.Provider>
       </BrowserRouter>

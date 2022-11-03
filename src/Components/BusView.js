@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import ModleBus from "./ModleBus";
 import ModleDelete from "./BusModleDelete";
 import { Grid } from "@mui/material";
-//import { FaUserPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Bus = () => {
@@ -36,7 +36,11 @@ const Bus = () => {
     <>
       {/* <SideNavBar /> */}
       <div className="pageBody">
-       
+      <Link to="/busform">
+        <button variant="primary" className="addButton" type="submit">
+          ADD BUS
+        </button>
+      </Link>
         <br />
         <br />
         <h3>Normal Buses</h3>
