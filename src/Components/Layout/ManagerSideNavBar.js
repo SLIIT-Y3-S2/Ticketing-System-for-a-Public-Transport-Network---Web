@@ -84,7 +84,7 @@ const ManagerSideNavBar = ({ user }) => {
                     fontSize: "16px",
                     textAlign: "center",
                   }}
-                  primary={user.user.type}
+                  primary="Manager"
                 />
               </ListItem>
               {[
