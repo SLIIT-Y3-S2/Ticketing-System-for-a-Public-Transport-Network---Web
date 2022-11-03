@@ -1,10 +1,11 @@
 import { Button } from '@mui/material';
 import React from 'react'
+import QRCode from 'react-qr-code';
 
-const PassengerProfile = ({user}) => {
+const PassengerProfile = ({user,recharge}) => {
     console.log("user",user)
   return (
-    <div>
+     {...user.token !== undefined ? (<div>
       <h2>My Account</h2>
       <div
         style={{
@@ -30,19 +31,39 @@ const PassengerProfile = ({user}) => {
           borderRadius: "8px",
           padding: "20px",
           marginTop: "30px",
-          marginLeft:"30%",
+          marginLeft: "30%",
         }}
       >
         <div style={{ color: "#4287f5" }}>
           <h4>{`LKR ${user.user.balance}`}</h4>
         </div>
         <div>
-          <Button style={{ color: "white", backgroundColor: "#0d316b" }}>
+          <Button
+            style={{ color: "white", backgroundColor: "#0d316b" }}
+            onClick={recharge}
+          >
             Recharge Now
           </Button>
         </div>
       </div>
-    </div>
+      <div
+        style={{
+          border: "2px solid #0d316b",
+          borderRadius: "8px",
+          padding: "20px",
+          marginTop: "30px",
+          marginLeft: "30%",
+          width: "40%",
+        }}
+      >
+        <center>
+          <h4>My QR Code</h4>
+          <br />
+          <QRCode value={user.user.id} />
+        </center>
+      </div>
+     </div>) : (<h2>{`Session Expired.... Please Login again to Continue`}</h2>)}
+    
   );
 }
 
