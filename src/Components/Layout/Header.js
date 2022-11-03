@@ -32,9 +32,23 @@ const Header = () => {
             padding: "10px 15px 10px 15px",
           }}
         >
-          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            <h1 style={{ letterSpacing: "0.1em" }}>Easy Going</h1>
-          </Link>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "400px",
+            }}
+          >
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <h1 style={{ letterSpacing: "0.1em" }}>Easy Going</h1>
+            </Link>
+            <Link
+              to="/manager"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <h5 style={{ paddingTop: "15px" }}>Dashboard</h5>
+            </Link>
+          </div>
           <AuthOptions />
         </div>
       </AppBar>

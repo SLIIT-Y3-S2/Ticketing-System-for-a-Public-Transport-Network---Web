@@ -48,7 +48,7 @@ const App = () => {
       }
     };
     checkLoggedIn();
-  }, []);
+  },[]);
   return (
     <div>
       <BrowserRouter>
