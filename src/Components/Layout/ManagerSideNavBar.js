@@ -18,6 +18,7 @@ import PassengerProfile from "../PassengerProfile";
 import SheduleDashboard from "../SheduleDashboard";
 import ViewShedule from "../ViewShedule";
 import BusView from "../BusView";
+import InspectorView from "../InspectorView";
 
 const drawerWidth = 240;
 
@@ -120,7 +121,7 @@ const ManagerSideNavBar = ({ user }) => {
         ) : page === 3 ? (
           <BusView />
         ) : (
-          <h1>View Inspectors</h1>
+          <InspectorView/>
         )}
       </Box>
     </Box>
